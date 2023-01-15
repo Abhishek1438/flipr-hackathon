@@ -1,11 +1,41 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Head from 'next/head';
+import styles from '@/styles/Home.module.css';
+import Navbar from '@/components/Navbar';
+import Range from '@/components/Range';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import { useEffect, useState } from 'react';
+import OptionBar from '@/components/OptionBar';
+import Overview from '@/components/Overview';
+import Chart from '@/components/Cart';
 
 export default function Home() {
+  const [option, setOption] = useState('');
+  const date = new Date();
+  const day = date.getUTCDate();
+  const month = date.getMonth() + 1;
+  const year = date.getUTCFullYear();
+  const hours = date.getUTCHours();
+  const minutes = date.getUTCMinutes();
+  const newDate = `${day}/${month}/${year} ${hours}:${minutes}`;
+
+  const handleChange = (event) => {
+    setOption(event.target.value);
+  };
+
+  const [selected, setSelected] = useState('Overview');
+
+  const [selectedComponent, setSelectedComponent] = useState(<Overview />);
+  useEffect(() => {
+    if (selected === 'Overview') {
+      setSelectedComponent(<Overview />);
+    } else if (selected === 'Chart') {
+      setSelectedComponent(<Chart />);
+    } else setSelectedComponent(<p>Working on it</p>);
+  }, [selected]);
+
   return (
     <>
       <Head>
@@ -15,109 +45,43 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+        <Navbar />
+        <h2>NIFTY 50</h2>
+        <hr />
+        <div className={styles.tradeDataContainer}>
+          <div className={styles.tradeData}>
+            <h1>{17172.15}</h1>
+            <h2 style={{ color: 'green' }}>2,32,434(0.234%)</h2>
+            <p>As on {newDate}</p>
+          </div>
+          <div className={styles.tradeDataRange}>
+            <Range type={'Day'} current={17172.15} lowest={17774.25} highest={17976.4} />
+            <Range type={'52 week'} current={17172.15} lowest={15183.4} highest={18887.6} />
+            <h4 style={{ color: 'rgb(176, 176, 176)' }}>Returns</h4>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <FormControl sx={{ m: 1, minWidth: 80 }}>
+                <InputLabel id="demo-simple-select-label">YTD</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={option}
+                  label={'Option'}
+                  onChange={handleChange}
+                >
+                  <MenuItem value={'YTD'}>YTD</MenuItem>
+                  <MenuItem value={'YML'}>YML</MenuItem>
+                  <MenuItem value={'XYZ'}>XYZ</MenuItem>
+                </Select>
+              </FormControl>
+              <p>3.55%</p>
+            </div>
           </div>
         </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
+        <hr />
+        <OptionBar setSelectedComponent={setSelected} />
+        <hr style={{ margin: 0 }} />
+        {selectedComponent}
       </main>
     </>
-  )
+  );
 }
