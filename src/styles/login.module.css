@@ -1,38 +1,54 @@
-.loginSection{
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),url('../assets/app-background.jpg');
+.loginSection {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #202225), url('../assets/app-background.jpg');
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
 }
+
 .loginParentContainer {
   color: #fff;
   min-height: 100vh;
   display: flex;
   justify-content: center;
-}
-
-.loginParentContainer>div {
-  background-color: #36393f;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
+  background-color: transparent;
 }
 
 .loginChildContainer {
   width: 92%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #36393f;
+  background-color: transparent;
+  font-size: 1.5rem !important;
+  border: 1px solid #000;
+  box-shadow: -3px 5px 15px #000;
+  text-align: center;
+
+}
+
+.iconButton {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  color: #fff;
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.9rem;
+  text-align: center;
+  border-radius: 0.2rem;
+  border: none;
+  outline: none;
+
 }
 
 .loginChildContainer .icon {
   padding-right: 1rem;
 }
 
-.loginChildContainer .welcomeMessage h2 {
-  margin: 0;
+.loginChildContainer .welcomeMessage {
+  margin: 2rem 0 0 0;
 }
 
 .loginChildContainer p {
@@ -61,8 +77,8 @@
 .loginChildContainer form input {
   border-radius: 0.2rem;
   width: 100%;
-  background-color: #202225;
-  border: none;
+  background-color: transparent;
+  border: 1px solid #b9bbbe;
   outline: none;
   padding: 0.8rem 0.5rem;
   margin-bottom: 1.5rem;
@@ -73,18 +89,25 @@
   margin-bottom: 0.5rem;
 }
 
+
 .loginChildContainer form p {
+  text-align: start;
+  line-height: 1rem;
   font-size: 0.8rem;
 }
 
-.loginChildContainer .forgotPass {
+.loginChildContainer .alreadyAccount {
   color: #00aff4;
-  margin: 0;
+  margin: 0.5rem 0;
+}
+
+.loginChildContainer span {
+  color: #00aff4;
 }
 
 .loginChildContainer form button {
   color: #fff;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
   padding: 0.9rem;
   width: 100%;
   border-radius: 0.2rem;
@@ -98,8 +121,8 @@
   text-align: center;
 }
 
-.loginChildContainer span {
-  color: #00aff4;
+.footerContainer {
+  width: 50%;
 }
 
 @media only screen and (min-width: 485px) {
@@ -111,7 +134,6 @@
   .loginParentContainer>div {
     width: fit-content;
     min-height: 0;
-    flex-direction: row;
     align-items: center;
     border-radius: 0.5rem;
     padding: 2rem;
@@ -124,10 +146,6 @@
   }
 
   .loginChildContainer .icon {
-    display: none;
-  }
-
-  .qrcode {
     display: none;
   }
 }

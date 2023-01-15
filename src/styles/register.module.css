@@ -1,10 +1,11 @@
 .loginSection {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #202225),url('../assets/app-background.jpg');
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #202225), url('../assets/app-background.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
 }
+
 .loginParentContainer {
   color: #fff;
   min-height: 100vh;
@@ -17,9 +18,29 @@
   width: 92%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: transparent;
   font-size: 1.5rem !important;
+  border: 1px solid #000;
+  box-shadow: -3px 5px 15px #000;
+  text-align: center;
+
+}
+
+.iconButton {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  color: #fff;
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.9rem;
+  text-align: center;
+  border-radius: 0.2rem;
+  border: none;
+  outline: none;
+
 }
 
 .loginChildContainer .icon {
@@ -68,29 +89,6 @@
   margin-bottom: 0.5rem;
 }
 
-.loginChildContainer input[type='checkbox'] {
-  cursor: pointer;
-  display: inline-block;
-  width: 2rem;
-}
-
-.loginChildContainer .checkboxContainer {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
-
-.checkboxContainer label {
-  font-size: 0.57rem;
-  font-weight: 200;
-  max-width: 35em;
-}
-
-.loginChildContainer input[type='checkbox'] {
-  display: inline;
-  width: 2rem;
-  transform: scale(2);
-}
 
 .loginChildContainer form p {
   text-align: start;
@@ -116,10 +114,15 @@
   border: none;
   outline: none;
   background-color: #5865f2;
+  cursor: pointer;
 }
 
 .orPara {
   text-align: center;
+}
+
+.footerContainer {
+  width: 50%;
 }
 
 @media only screen and (min-width: 485px) {

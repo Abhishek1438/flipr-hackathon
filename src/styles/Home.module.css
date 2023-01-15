@@ -1,46 +1,56 @@
 .loginSection {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #36393f), url('../assets/app-background.jpg');
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #202225), url('../assets/app-background.jpg');
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
 }
-.HomePageContainer {
+
+.loginParentContainer {
     color: #fff;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-}
-
-.HomePageContainer>div {
     background-color: transparent;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
 }
 
-.homeChildContainer {
+.loginChildContainer {
     width: 92%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: transparent;
+    font-size: 1.5rem !important;
+    border: 1px solid #000;
+    box-shadow: -3px 5px 15px #000;
+    text-align: center;
+
 }
 
 
-.homeChildContainer .welcomeMessage h2 {
-    margin: 0;
+.loginChildContainer .welcomeMessage {
+    margin: 2rem 0 0 0;
 }
 
-.homeChildContainer p {
+.loginChildContainer p {
     margin-top: 0.5rem;
     color: #b9bbbe;
 }
 
+.loginChildContainer .footerContainer {
+    margin-top: 1rem;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
 
-.homeChildContainer button {
+
+.loginChildContainer button {
     color: #fff;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
     padding: 0.9rem;
     width: 100%;
     border-radius: 0.2rem;
@@ -50,29 +60,28 @@
     cursor: pointer;
 }
 
-.button {
-    width: 100%;
-}
-
 
 @media only screen and (min-width: 485px) {
-    .HomePageContainer {
+    .loginParentContainer {
         background-color: transparent;
         align-items: center;
     }
 
-    .HomePageContainer>div {
+    .loginParentContainer>div {
         width: fit-content;
         min-height: 0;
-        flex-direction: row;
         align-items: center;
         border-radius: 0.5rem;
         padding: 2rem;
         gap: 2rem;
     }
 
-    .homeChildContainer {
+    .loginChildContainer {
         border-radius: 0.5rem;
         width: 30em;
+    }
+
+    .loginChildContainer .icon {
+        display: none;
     }
 }

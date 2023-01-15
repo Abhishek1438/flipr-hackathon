@@ -1,80 +1,58 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
+import Loading from './Loading'
+// import Loading from '../../loading/Loading' 
 
-const loadingContainer = {
-  width: '4rem',
-  height: '4rem',
-  display: 'flex',
-  justifyContent: 'space-around',
-};
-const loadingCircle = {
-  display: 'block',
-  width: '1rem',
-  height: '1rem',
-  backgroundColor: '#3A36DB',
-  borderRadius: '0.5rem',
-};
+export default function Loader() {
+  // const str = `${data?.bedrooms} Apartment for ${data?.type} in ${data?.address}` 
+  // const urlRegex = /\s/g; 
+  // const url_title = str.toLowerCase().replace(urlRegex, '-'); 
+  let [isOpen, setIsOpen] = useState(true)
 
-const loadingContainerVariants = {
-  start: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-  end: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
+  function closeModal() {
+    setIsOpen(true)
+  }
 
-const loadingCircleVariants = {
-  start: {
-    y: '0%',
-  },
-  end: {
-    y: '60%',
-  },
-};
-const loadingCircleTransition = {
-  duration: 0.4,
-  repeat: Infinity,
-  repeatDelay: 0,
-  ease: 'easeInOut',
-};
+  function openModal() {
+    setIsOpen(true)
+  }
 
-const Loader = () => {
   return (
-    <div>
-      <div className="fixed  w-full min-h-screen z-50 bg-black opacity-30" />
-      <div className="flex fixed w-full justify-center items-center h-screen">
-        <motion.div
-          style={loadingContainer}
-          variants={loadingContainerVariants}
-          initial="start"
-          animate="end"
-        >
-          <motion.span
-            style={loadingCircle}
-            variants={loadingCircleVariants}
-            transition={loadingCircleTransition}
-          ></motion.span>
-          <motion.span
-            style={loadingCircle}
-            variants={loadingCircleVariants}
-            transition={loadingCircleTransition}
-          ></motion.span>
-          <motion.span
-            style={loadingCircle}
-            variants={loadingCircleVariants}
-            transition={loadingCircleTransition}
+    <>
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-50" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            Loading...
-          </motion.span>
-        </motion.div>
-      </div>
-    </div>
-  );
-};
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
 
-export default Loader;
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel>
+                  <Loading />
+
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
+    </>
+  )
+}

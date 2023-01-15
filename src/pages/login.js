@@ -27,47 +27,39 @@ export default function () {
   return (
     <div className={classes.loginSection}>
       <div className={classes.loginParentContainer}>
-        <div>
-          <div className={classes.loginChildContainer}>
-            <div className={classes.welcomeMessage}>
-              <h2>Welcome back!</h2>
-              <p>We're so excited to see you again!</p>
-            </div>
-            <form>
-              <label>Email or phone number</label>
-              <input
-                type="email"
-                value={email}
-                required
-                onChange={(event) => setEmail(event.target.value)}
-              ></input>
-              <label>password</label>
-              <input
-                type="password"
-                required
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              ></input>
-              <button type="submit" onClick={submitHandler}>Log In</button>
-              <Link href="/register">
-                <p>
-                  Need an account? <span>Register</span>
-                </p>
-              </Link>
-            </form>
-            <div>
-              <p className={classes.orPara}>or</p>
-              <Link href="https://flipr-2e7c.onrender.com/auth/google">
-                <p>
-                  <FaGoogle /> Login with <span>Google</span>
-                </p>
-              </Link>
-              <Link href="https://flipr-2e7c.onrender.com/auth/github">
-                <p>
-                  <FaGithub /> Login with <span>Github</span>
-                </p>
-              </Link>
-            </div>
+        <div className={classes.loginChildContainer}>
+          <h2 className={classes.welcomeMessage}>Welcome back!</h2>
+          <p className={classes.welcomeMessage}>We're so excited to see you again!</p>
+          <form>
+            <label>Email or phone number</label>
+            <input
+              type="email"
+              value={email}
+              required
+              onChange={(event) => setEmail(event.target.value)}
+            ></input>
+            <label>password</label>
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            ></input>
+            <button type="submit" onClick={submitHandler}>Log In</button>
+            <Link href="/register">
+              <p>
+                Need an account? <span>Register</span>
+              </p>
+            </Link>
+          </form>
+          <div className={classes.footerContainer}>
+            <p className={classes.orPara}>or</p>
+            <Link href="https://flipr-2e7c.onrender.com/auth/google">
+              <button className={classes.iconButton} style={{ backgroundColor: 'rgba(226, 8, 8, 0.76)' }}><FaGoogle />  Google</button>
+            </Link>
+            <Link href="https://flipr-2e7c.onrender.com/auth/google">
+              <button className={classes.iconButton} style={{ backgroundColor: 'rgba(0, 0, 0, 0.637)' }}><FaGithub />  GitHub</button>
+            </Link>
           </div>
         </div>
       </div>
