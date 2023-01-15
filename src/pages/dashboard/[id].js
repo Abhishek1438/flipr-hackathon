@@ -21,7 +21,7 @@ const Dashboard = () => {
   const minutes = date.getUTCMinutes();
   const newDate = `${day}/${month}/${year} ${hours}:${minutes}`;
 
-  const [company, setCompany] = useState('Reliance');
+  const [company, setCompany] = useState('reliance');
 
   const handleChange = (event) => {
     setOption(event.target.value);
@@ -70,8 +70,8 @@ const Dashboard = () => {
 
   return (
     <main>
-      <Navbar />
       UserName = {router.query.id}
+      <Navbar />
       <h2>NIFTY 50</h2>
       <hr />
       <div className={styles.tradeDataContainer}>
