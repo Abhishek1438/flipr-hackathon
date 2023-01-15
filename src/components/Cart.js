@@ -1,11 +1,21 @@
-const Chart = () => {
-  Highcharts.getJSON('https://flipr-2e7c.onrender.com/data/reliance', function (data) {
+import { useEffect, useState } from 'react';
+import Loader from './Loader';
+
+const Chart = ({ company }) => {
+  const [dataFetched, setDataFetched] = useState(false);
+  useEffect(() => {
+    setDataFetched(false);
+  }, [company]);
+  console.log(dataFetched);
+
+  Highcharts.getJSON(`https://flipr-2e7c.onrender.com/data/${company}`, function (data) {
     // split the data set into ohlc and volume
     var ohlc = [],
       volume = [],
       dataLength = data.length,
       i = 0;
     console.log(dataLength);
+    setDataFetched(true);
 
     for (i; i < dataLength; i += 1) {
       ohlc.push([
@@ -106,7 +116,12 @@ const Chart = () => {
     });
   });
 
-  return <div id="container" class="chart"></div>;
+  return (
+    <>
+      {!dataFetched && <Loader />}
+      {dataFetched && <div id="container" class="chart"></div>}
+    </>
+  );
 };
 
 export default Chart;

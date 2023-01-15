@@ -20,20 +20,48 @@ const Dashboard = () => {
   const minutes = date.getUTCMinutes();
   const newDate = `${day}/${month}/${year} ${hours}:${minutes}`;
 
+  const [company, setCompany] = useState('Reliance');
+
   const handleChange = (event) => {
     setOption(event.target.value);
   };
 
   const [selected, setSelected] = useState('Overview');
 
+  const companyChange = (event) => {
+    setCompany(event.target.value);
+  };
+
   const [selectedComponent, setSelectedComponent] = useState(<Overview />);
   useEffect(() => {
     if (selected === 'Overview') {
       setSelectedComponent(<Overview />);
     } else if (selected === 'Chart') {
-      setSelectedComponent(<Chart />);
+      setSelectedComponent(
+        <div>
+          <FormControl sx={{ m: 1, minWidth: 80 }}>
+            <InputLabel id="simple-select-label">Reliance</InputLabel>
+            <Select
+              labelId="simple-select-label"
+              id="demo-simple-select"
+              value={company}
+              label={'Option'}
+              onChange={companyChange}
+            >
+              <MenuItem value={'reliance'}>Reliance</MenuItem>
+              <MenuItem value={'nse'}>Nse</MenuItem>
+              <MenuItem value={'bse'}>Bse</MenuItem>
+              <MenuItem value={'tata'}>Tata</MenuItem>
+              <MenuItem value={'eichermot'}>Eichermot</MenuItem>
+              <MenuItem value={'cipla'}>Cipla</MenuItem>
+              <MenuItem value={'ashok'}>AshokLeyland</MenuItem>
+            </Select>
+          </FormControl>
+          <Chart company={company} />
+        </div>
+      );
     } else setSelectedComponent(<p>Working on it</p>);
-  }, [selected]);
+  }, [selected, company]);
 
   return (
     <main>
