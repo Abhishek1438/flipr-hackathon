@@ -1,5 +1,6 @@
 .loginSection {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230), url('../assets/stock-background.jpg');
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #202225),url('../assets/app-background.jpg');
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -9,7 +10,7 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: #36393f;
+  background-color: transparent;
 }
 
 .loginChildContainer {
@@ -17,7 +18,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #36393f;
+  background-color: transparent;
+  font-size: 1.5rem !important;
 }
 
 .loginChildContainer .icon {
@@ -54,8 +56,8 @@
 .loginChildContainer form input {
   border-radius: 0.2rem;
   width: 100%;
-  background-color: #202225;
-  border: none;
+  background-color: transparent;
+  border: 1px solid #b9bbbe;
   outline: none;
   padding: 0.8rem 0.5rem;
   margin-bottom: 1.5rem;
