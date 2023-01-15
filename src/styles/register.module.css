@@ -110,13 +110,17 @@
   background-color: #5865f2;
 }
 
+.orPara {
+  text-align: center;
+}
+
 @media only screen and (min-width: 485px) {
   .loginParentContainer {
     background-color: transparent;
     align-items: center;
   }
 
-  .loginParentContainer > div {
+  .loginParentContainer>div {
     width: fit-content;
     min-height: 0;
     align-items: center;

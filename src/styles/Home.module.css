@@ -1,0 +1,72 @@
+.HomePageContainer {
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.HomePageContainer>div {
+    background-color: #36393f;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.homeChildContainer {
+    width: 92%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #36393f;
+}
+
+
+.homeChildContainer .welcomeMessage h2 {
+    margin: 0;
+}
+
+.homeChildContainer p {
+    margin-top: 0.5rem;
+    color: #b9bbbe;
+}
+
+
+.homeChildContainer button {
+    color: #fff;
+    margin-top: 1.5rem;
+    padding: 0.9rem;
+    width: 100%;
+    border-radius: 0.2rem;
+    border: none;
+    outline: none;
+    background-color: #5865f2;
+    cursor: pointer;
+}
+
+.button {
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 485px) {
+    .HomePageContainer {
+        background-color: transparent;
+        align-items: center;
+    }
+
+    .HomePageContainer>div {
+        width: fit-content;
+        min-height: 0;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .homeChildContainer {
+        border-radius: 0.5rem;
+        width: 30em;
+    }
+}

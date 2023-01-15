@@ -5,7 +5,7 @@
   justify-content: center;
 }
 
-.loginParentContainer > div {
+.loginParentContainer>div {
   background-color: #36393f;
   width: 100%;
   display: flex;
@@ -85,9 +85,14 @@
   border: none;
   outline: none;
   background-color: #5865f2;
+  cursor: pointer;
 }
 
-.loginChildContainer form span {
+.orPara {
+  text-align: center;
+}
+
+.loginChildContainer span {
   color: #00aff4;
 }
 
@@ -97,7 +102,7 @@
     align-items: center;
   }
 
-  .loginParentContainer > div {
+  .loginParentContainer>div {
     width: fit-content;
     min-height: 0;
     flex-direction: row;

@@ -1,5 +1,7 @@
 import Head from 'next/head';
-import styles from '@/styles/Home.module.css';
+// import styles from '@/styles/Home.module.css';
+import classes from '../styles/Home.module.css';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -10,7 +12,30 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>complete it</main>
+      <main >
+        <div className={classes.HomePageContainer}>
+          <div>
+            <div className={classes.homeChildContainer}>
+              <div className={classes.welcomeMessage}>
+                <h2>FlipR Hackathon</h2>
+                <p>Lets Start with FlipR</p>
+              </div>
+              <div className={classes.button}>
+                <Link href='/login'>
+                  <button type='submit'>Login</button>
+                </Link>
+              </div>
+              <div className={classes.button}>
+                <Link href='/register'>
+                  <button type='submit'>Signup</button>
+                </Link>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </main>
     </>
   );
 }
