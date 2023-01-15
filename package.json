@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.4",
     "@next/font": "13.1.2",
+    "framer-motion": "^8.4.3",
     "highcharts": "^10.3.2",
     "next": "13.1.2",
     "react": "18.2.0",
