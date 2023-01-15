@@ -1,8 +1,27 @@
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import classes from '../styles/login.module.css';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function () {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [verified, setVerified] = useState(false);
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    fetch('https://flipr-2e7c.onrender.com/login', {
+      method: 'POST',
+      body: { email, password },
+    })
+      .then((response) => response.json())
+      .then((data) => setVerified(data.verified));
+
+    if (verified == 1) {
+      router.push(`/dashboard/${email}`);
+    }
+  };
+
   return (
     <div className={classes.loginParentContainer}>
       <div>
@@ -13,9 +32,19 @@ export default function () {
           </div>
           <form>
             <label>Email or phone number</label>
-            <input type="text" required></input>
+            <input
+              type="email"
+              value={email}
+              required
+              onChange={(event) => setEmail(event.target.value)}
+            ></input>
             <label>password</label>
-            <input type="password" required></input>
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            ></input>
             <p className={classes.forgotPass}>Forgot your password?</p>
             <button type="submit">Log In</button>
             <Link href="/register">

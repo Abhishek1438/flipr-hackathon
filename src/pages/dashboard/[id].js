@@ -8,7 +8,8 @@ import OptionBar from '@/components/OptionBar';
 import { useEffect, useState } from 'react';
 import Overview from '@/components/Overview';
 import Chart from '@/components/Cart';
-import styles from '../styles/dashboard.module.css';
+import styles from '../../styles/dashboard.module.css';
+import { useRouter } from 'next/router';
 
 const Dashboard = () => {
   const [option, setOption] = useState('');
@@ -25,6 +26,8 @@ const Dashboard = () => {
   const handleChange = (event) => {
     setOption(event.target.value);
   };
+
+  const router = useRouter();
 
   const [selected, setSelected] = useState('Overview');
 
@@ -63,9 +66,12 @@ const Dashboard = () => {
     } else setSelectedComponent(<p>Working on it</p>);
   }, [selected, company]);
 
+  console.log(router.query);
+
   return (
     <main>
       <Navbar />
+      UserName = {router.query.id}
       <h2>NIFTY 50</h2>
       <hr />
       <div className={styles.tradeDataContainer}>
