@@ -44,12 +44,12 @@ const Dashboard = () => {
       setSelectedComponent(
         <div>
           <FormControl sx={{ m: 1, minWidth: 80 }}>
-            <InputLabel id="simple-select-label">Reliance</InputLabel>
+            <InputLabel id="simple-select-label">{company}</InputLabel>
             <Select
               labelId="simple-select-label"
-              id="demo-simple-select"
+              id="simple-select-label"
               value={company}
-              label={'Option'}
+              label={'Company'}
               onChange={companyChange}
             >
               <MenuItem value={'reliance'}>Reliance</MenuItem>
