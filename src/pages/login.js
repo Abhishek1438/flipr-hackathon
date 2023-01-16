@@ -57,7 +57,7 @@ export default function () {
             <Link href="https://flipr-2e7c.onrender.com/auth/google">
               <button className={classes.iconButton} style={{ backgroundColor: 'rgba(226, 8, 8, 0.76)' }}><FaGoogle />  Google</button>
             </Link>
-            <Link href="https://flipr-2e7c.onrender.com/auth/google">
+            <Link href="https://flipr-2e7c.onrender.com/auth/github">
               <button className={classes.iconButton} style={{ backgroundColor: 'rgba(0, 0, 0, 0.637)' }}><FaGithub />  GitHub</button>
             </Link>
           </div>

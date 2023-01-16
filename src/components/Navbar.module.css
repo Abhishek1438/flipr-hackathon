@@ -1,7 +1,16 @@
 .navbar {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.logout{
+  cursor: pointer;
+  border: 1px solid rgb(176, 176, 176);
+  border-radius: 0.5rem;
+}
+.logout:hover{
+  color: rgb(176, 176, 176);
+}
 .navbar ul {
   display: flex;
   padding: 0;

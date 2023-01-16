@@ -10,6 +10,7 @@ import Overview from '@/components/Overview';
 import Chart from '@/components/Cart';
 import styles from '../../styles/dashboard.module.css';
 import { useRouter } from 'next/router';
+import { FaCaretUp } from 'react-icons/fa';
 
 const Dashboard = () => {
   const [option, setOption] = useState('');
@@ -52,12 +53,12 @@ const Dashboard = () => {
               onChange={companyChange}
             >
               <MenuItem value={'reliance'}>Reliance</MenuItem>
-              <MenuItem value={'nse'}>Nse</MenuItem>
-              <MenuItem value={'bse'}>Bse</MenuItem>
+              <MenuItem value={'nse'}>NSE</MenuItem>
+              <MenuItem value={'bse'}>BSE</MenuItem>
               <MenuItem value={'tata'}>Tata</MenuItem>
               <MenuItem value={'eichermot'}>Eichermot</MenuItem>
               <MenuItem value={'cipla'}>Cipla</MenuItem>
-              <MenuItem value={'ashok'}>AshokLeyland</MenuItem>
+              <MenuItem value={'ashok'}>Ashok Leyland</MenuItem>
             </Select>
           </FormControl>
           <Chart company={company} />
@@ -70,14 +71,14 @@ const Dashboard = () => {
 
   return (
     <main>
-      UserName = {router.query.id}
+      {/* UserName = {router.query.id} */}
       <Navbar />
       <h2>NIFTY 50</h2>
       <hr />
       <div className={styles.tradeDataContainer}>
         <div className={styles.tradeData}>
           <h1>{17172.15}</h1>
-          <h2 style={{ color: 'green' }}>2,32,434(0.234%)</h2>
+          <h2 style={{ color: 'green' }}><FaCaretUp /> 2,32,434(0.234%)</h2>
           <p>As on {newDate}</p>
         </div>
         <div className={styles.tradeDataRange}>

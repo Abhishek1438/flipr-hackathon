@@ -17,12 +17,14 @@ export default function Home() {
           <div className={classes.loginChildContainer}>
             <h2 className={classes.welcomeMessage}>FlipR Hackathon</h2>
             <p className={classes.welcomeMessage}>Lets Start with FlipR</p>
-            <Link href='/login'>
-              <button type='submit' >Login</button>
-            </Link>
-            <Link href='/register'>
-              <button type='submit' >Signup</button>
-            </Link>
+            <div>
+              <Link href='/login'>
+                <button type='submit' >Login</button>
+              </Link>
+              <Link href='/register'>
+                <button type='submit' >Signup</button>
+              </Link>
+            </div>
           </div>
         </div>
       </main>

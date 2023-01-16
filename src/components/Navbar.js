@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import classes from './Navbar.module.css';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [selected, setSelected] = useState('NSE');
@@ -25,6 +26,13 @@ const Navbar = () => {
         >
           Options
         </li>
+      </ul>
+      <ul>
+        <Link href="https://flipr-2e7c.onrender.com/logout">
+          <li className={classes.logout}>
+            Logout
+          </li>
+        </Link>
       </ul>
     </nav>
   );
